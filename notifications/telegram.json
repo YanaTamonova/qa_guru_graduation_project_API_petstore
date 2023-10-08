@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "qa_guru_graduation_project_API_petstore",
+    "environment": "Jenkins",
+    "comment": "graduation_project_API",
+    "reportLink": "",
+    "language": "en",
+    "messenger": "telegram",
+    "allureFolder": "tests/allure-results/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6152687559:AAHHOdDQZDT8IP238_rslaRy2By5WJcC6wA",
+    "chat": "-1001917108212",
+    "replyTo": ""
+  }
+}

@@ -1,0 +1,6 @@
+pytest
+selene>=2.0.0rc4
+allure-pytest
+requests
+curlify
+jsonschema
