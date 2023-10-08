@@ -55,13 +55,9 @@ def test_get_pet_by_status():
     status = choice(statuses)
     response = api(method='get', section=section, url=f'/findByStatus?status={status}')
 
+    validate(instance=response.json()[0], schema=get_file.schema(section, 'get_pet_by_status_schema.json'))
     assert response.status_code == 200
-
-    if status != 'pending':
-        validate(instance=response.json()[0], schema=get_file.schema(section, 'get_pet_by_status_schema.json'))
-        assert response.json()[0]['status'] == status
-    else:
-        assert len(response.json()) == 0
+    assert response.json()[0]['status'] == status
 
 
 @allure.title('Update info about a pet')
