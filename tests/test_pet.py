@@ -11,7 +11,6 @@ pytestmark = [
     allure.tag('API')
 ]
 
-
 section = 'pet'
 pet_id = randrange(0, 10 ^ 4)
 
@@ -20,24 +19,23 @@ pet_id = randrange(0, 10 ^ 4)
 @allure.severity(Severity.CRITICAL)
 @allure.feature('Pet')
 def test_add_new_pet():
-
     json_body = {
-      "id": pet_id,
-      "category": {
-        "id": 1,
-        "name": "dogs"
-      },
-      "name": "Doggie",
-      "photoUrls": [
-        get_file.image('Dog.jpg')
-      ],
-      "tags": [
-        {
-          "id": 1,
-          "name": "Tag"
-        }
-      ],
-      "status": "available"
+        "id": pet_id,
+        "category": {
+            "id": 1,
+            "name": "dogs"
+        },
+        "name": "Doggie",
+        "photoUrls": [
+            get_file.image('Dog.jpg')
+        ],
+        "tags": [
+            {
+                "id": 1,
+                "name": "Tag"
+            }
+        ],
+        "status": "available"
     }
 
     response = api(method='post', section=section, url='', json=json_body)
@@ -64,7 +62,6 @@ def test_get_pet_by_status():
 @allure.severity(Severity.CRITICAL)
 @allure.feature('Pet')
 def test_update_pet():
-
     statuses = ['pending', 'sold', 'available']
     status = choice(statuses)
 
@@ -99,7 +96,6 @@ def test_update_pet():
 @allure.severity(Severity.CRITICAL)
 @allure.feature('Pet')
 def test_delete_pet():
-
     response = api(method='delete', section=section, url=f'/{pet_id}')
 
     validate(instance=response.json(), schema=get_file.schema(section, 'delete_pet_id_schema.json'))
